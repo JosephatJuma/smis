@@ -8,6 +8,7 @@ function usePost() {
   };
   const submitData = async (url, formData) => {
     clearErr();
+    console.log(formData.email);
     try {
       setIsSending(true);
       const response = await axios.post(url, formData);

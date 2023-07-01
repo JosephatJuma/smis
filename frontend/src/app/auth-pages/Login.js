@@ -16,22 +16,17 @@ import {
 import { NavigationProgress, nprogress } from "@mantine/nprogress";
 import { Link } from "react-router-dom";
 import usePost from "../../hooks/usePost";
-import { IconX, IconXd } from "@tabler/icons-react";
-import useNaviagtionProgress from "../../hooks/useNaviagtionProgress";
+import { IconX } from "@tabler/icons-react";
+
 export default function AuthenticationTitle() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({});
   const { message, isSending, clearErr, submitData } = usePost();
+
   useEffect(() => {
     nprogress.complete();
   });
   const submit = () => {
-    const user = {
-      email: "jumajosephaertyut61@gmail.com",
-      password: "password",
-    };
-
-    submitData("https://smis.up.railway.app/api/v1/login/", user);
+    submitData("https://smis.up.railway.app/api/v1/login/", credentials);
   };
   return (
     <>
@@ -60,14 +55,18 @@ export default function AuthenticationTitle() {
             label="Email"
             placeholder="you@mantine.dev"
             required
-            onInput={(value) => setEmail(value)}
+            onInput={(e) =>
+              setCredentials({ ...credentials, email: e.target.value })
+            }
           />
           <PasswordInput
             label="Password"
             placeholder="Your password"
             required
             mt="md"
-            onInput={(value) => setPassword(value)}
+            onInput={(e) =>
+              setCredentials({ ...credentials, password: e.target.value })
+            }
           />
           <Group position="apart" mt="lg">
             <Checkbox label="Remember me" />

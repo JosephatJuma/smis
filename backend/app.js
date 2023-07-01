@@ -11,10 +11,6 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/", api); //use api routes
 
-app.listen(
-  port,
-  //process.env.HOSTNAME,
-  () => {
-    console.log(`app running on prot ${port}`);
-  }
-);
+app.listen(port, process.env.HOSTNAME, () => {
+  console.log(`app running on prot ${port}`);
+});

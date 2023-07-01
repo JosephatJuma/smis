@@ -25,6 +25,14 @@ export default function AuthenticationTitle() {
   useEffect(() => {
     nprogress.complete();
   });
+  const submit = () => {
+    const user = {
+      email: "jumajosephaertyut61@gmail.com",
+      password: "password",
+    };
+
+    submitData("https://smis.up.railway.app/api/v1/login/", user);
+  };
   return (
     <>
       <NavigationProgress autoReset={true} />
@@ -52,14 +60,14 @@ export default function AuthenticationTitle() {
             label="Email"
             placeholder="you@mantine.dev"
             required
-            onChange={(value) => setEmail(value)}
+            onInput={(value) => setEmail(value)}
           />
           <PasswordInput
             label="Password"
             placeholder="Your password"
             required
             mt="md"
-            onChange={(value) => setPassword(value)}
+            onInput={(value) => setPassword(value)}
           />
           <Group position="apart" mt="lg">
             <Checkbox label="Remember me" />
@@ -67,16 +75,7 @@ export default function AuthenticationTitle() {
               Forgot password?
             </Anchor>
           </Group>
-          <Button
-            fullWidth
-            mt="xl"
-            onClick={() =>
-              submitData("https://smis.up.railway.app/api/v1/login", {
-                email: email,
-                password: password,
-              })
-            }
-          >
+          <Button fullWidth mt="xl" onClick={submit}>
             Sign in
           </Button>
         </Paper>

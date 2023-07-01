@@ -12,6 +12,7 @@ function usePost() {
       setIsSending(true);
       const response = await axios.post(url, formData);
       setMessage(response.data.message);
+      console.log(response.data);
     } catch (error) {
       setMessage(error.message);
     }

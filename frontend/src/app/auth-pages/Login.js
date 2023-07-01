@@ -71,9 +71,9 @@ export default function AuthenticationTitle() {
             fullWidth
             mt="xl"
             onClick={() =>
-              submitData("https://smartbin-oh7z.onrender.com/api/login", {
-                email: "email",
-                password: "password",
+              submitData("https://smis.up.railway.app/api/v1/login", {
+                email: email,
+                password: password,
               })
             }
           >

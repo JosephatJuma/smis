@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
+const port = process.env.PORT || 4000;
 app.use(bodyParser.json());
 const api = require("./routes/apiRoutes"); //import api routes
 
@@ -11,6 +11,6 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/", api); //use api routes
 
-app.listen(4000, "0.0.0.0", () => {
-  console.log("app running on prot 4000");
+app.listen(port, process.env.HOSTNAME, () => {
+  console.log(`app running on prot ${port}`);
 });

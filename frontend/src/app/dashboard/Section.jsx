@@ -68,7 +68,20 @@ export function StatsRingCard() {
   //   ));
 
   return (
-    <Card withBorder p="xl" radius="md" className={classes.card}>
+    <Card
+      withBorder
+      p="xl"
+      radius="md"
+      className={classes.card}
+      shadow="lg"
+      sx={{
+        backgroundImage: theme.fn.linearGradient(
+          0,
+          theme.colors.orange[4],
+          theme.colors.pink[2]
+        ),
+      }}
+    >
       <div className={classes.inner}>
         <div>
           <Text fz="xl" className={classes.label}>

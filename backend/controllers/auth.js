@@ -13,13 +13,20 @@ exports.login = async (req, res) => {
         const valid = await validatePassword(password, passwordFromDB);
         valid
           ? res.status(200).send("Succeeded! ")
-          : res.status(500).send("Wrong Password! ");
+          : res.status(200).send("Wrong Password! ");
       } else {
-        res.send();
-        res.status(500).send("Wrong user email! ");
+        res.status(200).send("Wrong user email! ");
       }
     });
   } catch (error) {
     res.status(500).send(error.message);
   }
+};
+
+exports.sendVerificationCode = (req, res) => {
+  //send code
+};
+
+exports.verifyEmail = (req, res) => {
+  //send code
 };

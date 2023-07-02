@@ -16,7 +16,7 @@ import {
   PinInput,
   PasswordInput,
 } from "@mantine/core";
-import { IconArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconX } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 const useStyles = createStyles((theme) => ({
   title: {
@@ -42,6 +42,7 @@ const useStyles = createStyles((theme) => ({
 export default function ForgotPassword() {
   const { classes } = useStyles();
   const [active, setActive] = useState(0);
+  const [pin, setPin] = useState([]);
   const nextStep = () =>
     setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () =>
@@ -69,7 +70,14 @@ export default function ForgotPassword() {
             Step 2 content: Enter Verification Code
             <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
               <Group position="center">
-                <PinInput length={6} />
+                <PinInput
+                  length={6}
+                  type={"number"}
+                  placeholder={"*"}
+                  size="xl"
+                  autoFocus={true}
+                  onInput={(e) => setPin([...pin, e.target.value])}
+                />
               </Group>
             </Paper>
           </Stepper.Step>

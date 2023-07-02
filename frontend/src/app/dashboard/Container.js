@@ -7,7 +7,7 @@ import {
   rem,
 } from "@mantine/core";
 
-const PRIMARY_COL_HEIGHT = rem(300);
+const PRIMARY_COL_HEIGHT = rem(400);
 
 export default function LeadGrid() {
   const theme = useMantineTheme();
@@ -27,7 +27,15 @@ export default function LeadGrid() {
         spacing="md"
         breakpoints={[{ maxWidth: "lg", cols: 1 }]}
       >
-        <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={true} />
+        <Grid gutter="md">
+          <Grid.Col span={6}>
+            <Skeleton height={PRIMARY_COL_HEIGHT} radius="sm" animate={true} />
+          </Grid.Col>
+
+          <Grid.Col span={6}>
+            <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={true} />
+          </Grid.Col>
+        </Grid>
         <Grid gutter="md">
           <Grid.Col>
             <Skeleton

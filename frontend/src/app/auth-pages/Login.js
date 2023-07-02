@@ -15,21 +15,24 @@ import {
 } from "@mantine/core";
 import { NavigationProgress, nprogress } from "@mantine/nprogress";
 import { Link } from "react-router-dom";
-import usePost from "../../hooks/usePost";
+import useLogin from "../../hooks/useLogin";
 import { IconX } from "@tabler/icons-react";
+import { Navigate } from "react-router-dom";
 
 export default function AuthenticationTitle() {
   const [credentials, setCredentials] = useState({});
-  const { message, isSending, clearErr, submitData } = usePost();
+  const { message, isSending, loggedIn, clearErr, submitData } = useLogin();
 
+  const api_url = process.env.REACT_APP_API_URL;
   useEffect(() => {
     nprogress.complete();
   });
   const submit = () => {
-    submitData("https://smis.up.railway.app/api/v1/login/", credentials);
+    submitData(`${api_url}/v1/login/`, credentials);
   };
   return (
     <>
+      {loggedIn && <Navigate to={"/"} />}
       <NavigationProgress autoReset={true} />
       <Container size={420} my={40}>
         <Title

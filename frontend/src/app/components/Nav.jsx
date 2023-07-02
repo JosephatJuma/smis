@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import {
   createStyles,
   Header,
@@ -30,8 +30,9 @@ import {
   IconFingerprint,
   IconCoin,
   IconChevronDown,
+  IconPlus,
 } from "@tabler/icons-react";
-import { Link } from "react-router-dom";
+
 const useStyles = createStyles((theme) => ({
   link: {
     display: "flex",
@@ -103,34 +104,40 @@ const useStyles = createStyles((theme) => ({
 
 const mockdata = [
   {
-    icon: IconCode,
-    title: "Open source",
-    description: "This Pokémon’s cry is very loud and distracting",
+    icon: IconPlus,
+    title: "Add Teacher",
+    description: "Creaye account for nw teacher",
+    to: "add-teacher",
   },
   {
     icon: IconCoin,
     title: "Free for everyone",
     description: "The fluid of Smeargle’s tail secretions changes",
+    to: "",
   },
   {
     icon: IconBook,
     title: "Documentation",
     description: "Yanma is capable of seeing 360 degrees without",
+    to: "",
   },
   {
     icon: IconFingerprint,
     title: "Security",
     description: "The shell’s rounded shape and the grooves on its.",
+    to: "",
   },
   {
     icon: IconChartPie3,
     title: "Analytics",
     description: "This Pokémon uses its flying ability to quickly chase",
+    to: "",
   },
   {
     icon: IconNotification,
     title: "Notifications",
     description: "Combusken battles with the intensely hot flames it spews",
+    to: "",
   },
 ];
 
@@ -141,7 +148,12 @@ export default function HeaderMegaMenu() {
   const { classes, theme } = useStyles();
 
   const links = mockdata.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
+    <UnstyledButton
+      className={classes.subLink}
+      key={item.title}
+      component={Link}
+      to={item.to}
+    >
       <Group noWrap align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon size={rem(22)} color={theme.fn.primaryColor()} />
@@ -183,7 +195,7 @@ export default function HeaderMegaMenu() {
                 <a href="#" className={classes.link}>
                   <Center inline>
                     <Box component="span" mr={5}>
-                      Features
+                      Operations
                     </Box>
                     <IconChevronDown
                       size={16}
@@ -195,7 +207,7 @@ export default function HeaderMegaMenu() {
 
               <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
                 <Group position="apart" px="md">
-                  <Text fw={500}>Features</Text>
+                  <Text fw={500}>Operations</Text>
                   <Anchor href="#" fz="xs">
                     View all
                   </Anchor>
@@ -254,7 +266,7 @@ export default function HeaderMegaMenu() {
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
-        size="100%"
+        size="sm"
         padding="md"
         title="Navigation"
         className={classes.hiddenDesktop}
@@ -272,7 +284,7 @@ export default function HeaderMegaMenu() {
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
-                Features
+                Operations
               </Box>
               <IconChevronDown size={16} color={theme.fn.primaryColor()} />
             </Center>

@@ -3,6 +3,7 @@ import React from "react";
 import { SimpleGrid, Grid, Card } from "@mantine/core";
 import { StatsRingCard } from "./Section";
 import LeadGrid from "./Container";
+import { Main } from "./Main";
 import DashProfile from "./DashProfile";
 function Dashboard() {
   return (
@@ -16,7 +17,7 @@ function Dashboard() {
           margin: "auto",
         }}
       >
-        <SimpleGrid
+        {/* <SimpleGrid
           cols={2}
           spacing="md"
           breakpoints={[{ maxWidth: "lg", cols: 1 }]}
@@ -41,7 +42,8 @@ function Dashboard() {
               <StatsRingCard />
             </Grid.Col>
           </Grid>
-        </SimpleGrid>
+        </SimpleGrid> */}
+        <Main />
       </div>
     </>
   );

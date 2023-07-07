@@ -77,8 +77,8 @@ export function StatsRingCard() {
       sx={{
         backgroundImage: theme.fn.linearGradient(
           0,
-          theme.colors.orange[4],
-          theme.colors.pink[2]
+          theme.colors.red[4],
+          theme.colors.blue[2]
         ),
       }}
     >

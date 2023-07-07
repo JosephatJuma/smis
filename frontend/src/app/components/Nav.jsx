@@ -266,7 +266,7 @@ export default function HeaderMegaMenu() {
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
-        size="sm"
+        size="xs"
         padding="md"
         title="Navigation"
         className={classes.hiddenDesktop}

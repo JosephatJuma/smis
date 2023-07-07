@@ -307,7 +307,7 @@ export default function HeaderMegaMenu() {
               Log in
             </Button>
 
-            <Button component={Link} to={"/reset-password"}>
+            <Button component={Link} to={"/sign-up"}>
               Sign up
             </Button>
           </Group>

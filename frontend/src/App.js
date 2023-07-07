@@ -2,7 +2,7 @@ import "./App.css";
 import Dashboard from "./app/dashboard/Dashboard";
 import AuthenticationTitle from "./app/auth-pages/Login";
 import ForgotPassword from "./app/auth-pages/ResetPassword";
-import AddTeacher from "./app/forms/AddTeacher";
+import Register from "./app/auth-pages/Register";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login/" element={<AuthenticationTitle />} />
         <Route path="/reset-password/" element={<ForgotPassword />} />
-        <Route path="/add-teacher/" element={<AddTeacher />} />
+        <Route path="/sign-up/" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

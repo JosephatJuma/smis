@@ -9,14 +9,7 @@ function Dashboard() {
   return (
     <>
       <HeaderMegaMenu />
-      <div
-        style={{
-          width: "98%",
-          justifyContent: "center",
-          alignSelf: "center",
-          margin: "auto",
-        }}
-      >
+      <div>
         {/* <SimpleGrid
           cols={2}
           spacing="md"
